@@ -5,9 +5,9 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class MainController {
-    
+
     public function homepage() {
-        $response = new Response('Homepage');
+        $response = new Response('<h1>Homepage</h1>');
 
         return $response;
     }
