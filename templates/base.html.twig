@@ -6,7 +6,16 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        {% include 'header.html.twig' %}
+        
+        {% block content %}
+
+            <div class="side_menu>
+                {% block side_menu %}{% endblock %}
+            </div>
+
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

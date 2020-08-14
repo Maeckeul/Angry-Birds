@@ -16,7 +16,7 @@ class MainController extends AbstractController {
 
         //return $response;
 
-        return $this->render('homepage.html.twig');
+        return $this->render('homepage.html.twig', ["date" => "14/08/2020"]);
     }
 
     /**
