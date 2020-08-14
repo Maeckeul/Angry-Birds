@@ -27,7 +27,7 @@ class MainController {
     }
 
     /**
-     * @Route("/product/{id}")
+     * @Route("/product/{id}", requirements={"id"="\d+"})
      */
     public function product(int $id) {
         $response = new Response("<h1>Product $id</h1>");
