@@ -5,3 +5,7 @@
 homepage:
   path: /
   controller: App\Controller\MainController::homepage
+
+contact:
+  path: /contact
+  controller: App\Controller\MainController::contact
