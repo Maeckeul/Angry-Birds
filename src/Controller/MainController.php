@@ -25,4 +25,12 @@ class MainController {
 
         return $response;
     }
+
+    /**
+     * @Route("/product/{id}")
+     */
+    public function product(int $id) {
+        $response = new Response("<h1>Product $id</h1>");
+        return $response;
+    }
 }
