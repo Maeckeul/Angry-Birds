@@ -12,16 +12,15 @@ class MainController extends AbstractController {
     /**
      * @Route("/", name="homepage")
      */
-    public function homepage(SessionInterface $session) {
+    public function homepage() {
 
         $birdModel = new Bird();
         $birds = $birdModel->getBirds();
 
-        $lastBirdId = $session->get('last_bird_id');
+        // $lastBirdId = $session->get('last_bird_id');
 
         return $this->render('homepage.html.twig', [
             "birds" => $birds,
-            "lastBirdId" => $lastBirdId
         ]);
     }
 
@@ -30,14 +29,14 @@ class MainController extends AbstractController {
      */
     public function birdDetail(int $id, SessionInterface $session) {
 
-        $session->set('last_bird_id', $id);
-
         $birdModel = new Bird(); 
         $bird = $birdModel->getBird($id);
 
         if($bird == false) {
             throw $this->createNotFoundException('Cet oiseau n\'existe pas');
         }
+
+        $session->set('last_bird_id', $id);
 
         return $this->render('bird-detail.html.twig', ["bird" => $bird]);
     }

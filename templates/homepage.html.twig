@@ -9,6 +9,8 @@
 
 <a href="{{ path('download_calendar') }}">Télécharger le calendrier</a>
 
+{% set lastBirdId = app.session.get('last_bird_id') %}
+
 {% if lastBirdId is not empty %}
 
 <p>Dernier oiseau visité :
