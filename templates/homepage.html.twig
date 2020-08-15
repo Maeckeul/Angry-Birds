@@ -9,6 +9,8 @@
 
 <p>Chaque oiseau est payé {{'2000000' | format_currency('EUR', locale='fr') }}</p>
 
+<p>{{ '2020-08-15 18:27:12' | format_datetime(locale='fr') }}</p>
+
 <a href="{{ path('download_calendar') }}">Télécharger le calendrier</a>
 
 {% set lastBirdId = app.session.get('last_bird_id') %}
