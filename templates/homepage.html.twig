@@ -9,6 +9,16 @@
 
 <a href="{{ path('download_calendar') }}">Télécharger le calendrier</a>
 
+{% if lastBirdId is not empty %}
+
+<p>Dernier oiseau visité :
+    <a href="{{ path('bird_detail', {id: lastBirdId})}}">
+        {{ birds[lastBirdId].name }}
+    </a> 
+</p>
+
+{% endif %}
+
 <div class="row">
     {% for id, bird in birds %}
     <div class="col-md-4 col-sm-6 col-xs-12">

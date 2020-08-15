@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\Bird;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController {
@@ -11,20 +12,25 @@ class MainController extends AbstractController {
     /**
      * @Route("/", name="homepage")
      */
-    public function homepage() {
+    public function homepage(SessionInterface $session) {
 
         $birdModel = new Bird();
         $birds = $birdModel->getBirds();
 
+        $lastBirdId = $session->get('last_bird_id');
+
         return $this->render('homepage.html.twig', [
-            "birds" => $birds
+            "birds" => $birds,
+            "lastBirdId" => $lastBirdId
         ]);
     }
 
     /**
      * @Route("/bird/{id}", name="bird_detail", requirements={"id" = "\d+"})
      */
-    public function birdDetail(int $id) {
+    public function birdDetail(int $id, SessionInterface $session) {
+
+        $session->set('last_bird_id', $id);
 
         $birdModel = new Bird(); 
         $bird = $birdModel->getBird($id);
