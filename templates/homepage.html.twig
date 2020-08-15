@@ -7,24 +7,18 @@
     <p class="lead">Games that lodge in the brain often have comical stars </p>
 </div>
 
-{{ dump(birds) }}
-
-<ul>
-    {% for bird in birds %}
-    <li>{{bird.name}}</li>
-    {% endfor %}
-</ul>
-
 <div class="row">
+    {% for bird in birds %}
     <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="card">
-            <img src="https://via.placeholder.com/400" class="carf*d-img-top">
+            <img src="{{asset('images/' ~ bird.image)}}" class="carf*d-img-top">
             <div class="card-body">
-                <h5 class="card-title">Nom de l'oiseau</h5> 
+                <h5 class="card-title">{{ bird.name }}</h5> 
                 <a href="#" class="btn btn-primary">Voir le détail</a>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
