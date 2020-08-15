@@ -8,13 +8,13 @@
 </div>
 
 <div class="row">
-    {% for bird in birds %}
+    {% for id, bird in birds %}
     <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="card">
             <img src="{{asset('images/' ~ bird.image)}}" class="carf*d-img-top">
             <div class="card-body">
-                <h5 class="card-title">{{ bird.name }}</h5> 
-                <a href="#" class="btn btn-primary">Voir le détail</a>
+                <h5 class="card-title">{{ id }}.{{ bird.name }}</h5> 
+                <a href="{{ path('bird_detail', {'id' : id}) }}" class="btn btn-primary">Voir le détail</a>
             </div>
         </div>
     </div>
