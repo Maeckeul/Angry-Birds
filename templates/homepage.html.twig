@@ -7,6 +7,8 @@
     <p class="lead">Games that lodge in the brain often have comical stars </p>
 </div>
 
+<p>Chaque oiseau est payé {{'2000000' | format_currency('EUR', locale='fr') }}</p>
+
 <a href="{{ path('download_calendar') }}">Télécharger le calendrier</a>
 
 {% set lastBirdId = app.session.get('last_bird_id') %}
