@@ -26,6 +26,13 @@ class MainController extends AbstractController {
      */
     public function birdDetail(int $id) {
 
-        return $this->render('homepage.html.twig', []);
+        $birdModel = new Bird(); 
+        $bird = $birdModel->getBird($id);
+
+        if($bird == false) {
+            return $this->createNotFoundException('Cet oiseu n\'existe pas');
+        }
+
+        return $this->render('bird-detail.html.twig', ["bird" => $bird]);
     }
 }

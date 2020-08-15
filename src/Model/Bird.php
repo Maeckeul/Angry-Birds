@@ -4,6 +4,16 @@ namespace App\Model;
 
 class Bird {
 
+    public function getBird($id) {
+        $birds = $this->getBirds();
+
+        if(!isset($birds[$id])) {
+            return false;
+        }
+
+        return $birds[$id];
+    }
+
     public function getBirds() {
         return [
             [

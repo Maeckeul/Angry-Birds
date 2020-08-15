@@ -13,7 +13,7 @@
         <div class="card">
             <img src="{{asset('images/' ~ bird.image)}}" class="carf*d-img-top">
             <div class="card-body">
-                <h5 class="card-title">{{ id }}.{{ bird.name }}</h5> 
+                <h5 class="card-title">{{ bird.name }}</h5> 
                 <a href="{{ path('bird_detail', {'id' : id}) }}" class="btn btn-primary">Voir le détail</a>
             </div>
         </div>
