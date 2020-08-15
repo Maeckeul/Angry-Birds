@@ -25,6 +25,10 @@
 
 {% endif %}
 
+{% set test = "Une première ligne \n une deuxième ligne" %}
+
+<p>{{ test | nl2br }}</p>
+
 <p>{{ "la balise <strong> sert à mettre en gras." | e('html') }}</p>
 
 <p>Il existe {{ birds | length }} oiseaux.</p>
