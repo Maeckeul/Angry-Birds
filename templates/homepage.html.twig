@@ -7,6 +7,8 @@
     <p class="lead">Games that lodge in the brain often have comical stars </p>
 </div>
 
+<a href="{{ path('download_calendar') }}">Télécharger le calendrier</a>
+
 <div class="row">
     {% for id, bird in birds %}
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -21,5 +23,9 @@
     {% endfor %}
 </div>
 
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
 {% endblock %}
 

@@ -22,7 +22,7 @@ class MainController extends AbstractController {
     }
 
     /**
-     * @Route("/bird/{id}", name="bird_detail")
+     * @Route("/bird/{id}", name="bird_detail", requirements={"id" = "\d+"})
      */
     public function birdDetail(int $id) {
 
@@ -30,9 +30,16 @@ class MainController extends AbstractController {
         $bird = $birdModel->getBird($id);
 
         if($bird == false) {
-            return $this->createNotFoundException('Cet oiseu n\'existe pas');
+            throw $this->createNotFoundException('Cet oiseau n\'existe pas');
         }
 
         return $this->render('bird-detail.html.twig', ["bird" => $bird]);
+    }
+
+    /**
+     * @Route("/download_calendar", name="download_calendar")
+     */
+    public function downloadCalendar() {
+        return $this->file('files/angry_birds_2015_calendar.pdf');
     }
 }
