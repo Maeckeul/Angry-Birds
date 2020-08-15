@@ -12,7 +12,7 @@
 <div class="row">
     {% for id, bird in birds %}
     <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="card">
+        <div class="card my-3 {{ cycle(['odd', 'even'], loop.index0) }}">
             <img src="{{asset('images/' ~ bird.image)}}" class="carf*d-img-top">
             <div class="card-body">
                 <h5 class="card-title">{{ bird.name }}</h5> 
