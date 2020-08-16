@@ -27,9 +27,8 @@ class MainController extends AbstractController {
     /**
      * @Route("/bird/{id}", name="bird_detail", requirements={"id" = "\d+"})
      */
-    public function birdDetail(int $id, SessionInterface $session) {
+    public function birdDetail(int $id, SessionInterface $session, Bird $birdModel) {
 
-        $birdModel = new Bird(); 
         $bird = $birdModel->getBird($id);
 
         if($bird == false) {
